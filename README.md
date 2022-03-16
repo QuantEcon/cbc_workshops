@@ -18,12 +18,17 @@ but not be limited to, the
 
 ## Format
 
-The workshops will consist of two separate courses:
+The workshops will consist of two courses:
 
 1. Introduction to Scientific Computing with Python and Julia
 2. High Performance Computing and Macroeconomic Modeling with Julia
 
-Each course will run for four days.  The format of the courses will be 
+Each course will run for three days.  Proposed dates are
+
+* Course 1: May 2nd, 3rd and 4th
+* Course 2: May 5th, 6th and 9th
+
+The format of the courses will be 
 
 * Lectures: 10am -- 12am 
 * Revision and tutorials: 1pm -- 3pm 
@@ -50,8 +55,7 @@ analysis and probability.
 * Numerical optimization tools
 * Introduction to the Numba just-in-time (JIT) compiler
 * Writing optimized code for Numba
-* Application: Markov chains and time series models
-* Application: Distribution dynamics
+* Application: Markov chains, time series models and distribution dynamics
 * Application: Search and optimal stopping
 * Application: Sovereign default models
 * Application: Default cascades in financial networks
@@ -63,7 +67,7 @@ analysis and probability.
 
 ## Course 2 Topics
 
-* Parallel computing
+* Parallel computing in Julia
 * Perturbation methods
 * Fixed point methods and financial networks
 * Global solution techniques and occasionally binding constraints models
@@ -74,3 +78,4 @@ analysis and probability.
 * Performance optimization
 * Structural modeling with Dolo
 * Introduction to deep learning methods
+
