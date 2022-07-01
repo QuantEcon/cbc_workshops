@@ -2,7 +2,7 @@
 
 This is the homepage for the [QuantEcon](https://quantecon.org/) scientific
 and high performance computing workshops to be held at the Central Bank of
-Chile in May 2022.
+Chile in September 2022.
 
 Instructors:
 
@@ -18,64 +18,66 @@ but not be limited to, the
 
 ## Format
 
-The workshops will consist of two courses:
+The schedule is
 
-1. Introduction to Scientific Computing with Python and Julia
-2. High Performance Computing and Macroeconomic Modeling with Julia
+* September 20th - 23rd: Scientific computing with Python
+* September 24th - 25th: Weekend break
+* September 26th - 27th: Scientific computing with Julia
 
-Each course will run for three days.  Proposed dates are
+The format of each day will be
 
-* Course 1: May 2nd, 3rd and 4th
-* Course 2: May 5th, 6th and 9th
+* 08:30 - 10:30: Lecture
+* 10:30 - 11:00: Coffee Break
+* 11:00 - 13:00: Practice Sessions
+* 13:00 - 14:30: Lunch (at Central Bank offices)
+* 14:30 - 16:00: Office hours
 
-The format of the courses will be 
-
-* Lectures: 10am -- 12am 
-* Revision and tutorials: 1pm -- 3pm 
-
-Non-graded homework assignments will also be provided.
 
 ## Prerequisites
 
-All participants are expected to bring laptop computers.
-
-If possible, participants should bring laptops with the ability to install
-open source software.
+All participants should bring laptop computers.  If possible, participants
+should bring laptops with the ability to install open source software.
 
 For those without such permissions, a cloud computing option will be provided. 
 
 The courses assume knowledge of the fundamentals of linear algebra,
-analysis and probability.
+analysis, optimization and probability.
+
 
 ## Course 1 Topics
 
-* Introduction to Python for scientific computing
-* Remote and cloud computing with Python
+John Stachurski will lead sessions on the following topics
+
+* Python for scientific computing
 * NumPy array operations on the CPU
-* Numerical optimization tools
 * Introduction to the Numba just-in-time (JIT) compiler
-* Writing optimized code for Numba
 * Application: Markov chains, time series models and distribution dynamics
 * Application: Search and optimal stopping
-* Application: Sovereign default models
+* Application: Asset pricing
+* Application: Dynamic programming
 * Application: Default cascades in financial networks
 * Parallelization on the CPU
 * Parallelization on the GPU via CUDA
 * Automatic differentiation and GPU computing with JAX
+
+Pablo will lead sessions on the following topics:
+
+* Introduction to deep learning methods
+
+## Julia Topics
+
+Pablo will lead sessions on the following topics:
+
 * Introduction to the Julia language
 * Types, multiple dispatch and the Julia JIT compiler
-
-## Course 2 Topics
-
-* Parallel computing in Julia
+* Structural models in Julia
 * Perturbation methods
-* Fixed point methods and financial networks
+* Time-iteration variants 
 * Global solution techniques and occasionally binding constraints models
     * "improved" algorithms
     * multistep problems and endogenous grids
     * dimensionality reduction
 * Heterogeneous agent models
+* Parallel computing in Julia
 * Performance optimization
-* Structural modeling with Dolo
-* Introduction to deep learning methods
 
