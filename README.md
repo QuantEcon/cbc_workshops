@@ -1,5 +1,7 @@
 # Central Bank of Chile Scientific Computing Workshops
 
+![](qe-logo-large.png)
+
 This is the homepage for the [QuantEcon](https://quantecon.org/) scientific
 and high performance computing workshops to be held at the Central Bank of
 Chile in September 2022.
