@@ -1,0 +1,58 @@
+\begin{tikzpicture}[auto, thick, shorten <=5pt, shorten >=5pt]
+
+%nodes
+\begin{scope}[every node/.style={circle,thick,draw}]
+
+    \node[color=white] (H) at (0,13) {};
+    \node (A) at (0,10) {0};
+    \node (B) at (3,7) {1};
+    \node (C) at (6,4) {2};
+    \node[color=white] (D) at (-3,7) {};
+    \node[color=white](E) at (0,4) {};
+    \node[color=white] (F) at (3,1) {} ;
+    \node[color=white] (G) at (9,1) {} ;
+    
+\end{scope}
+
+% edges
+
+%blue%
+\begin{scope}[>={Stealth[RoyalBlue]},
+			  every node/.style={fill=white,circle},
+              every edge/.style={draw=RoyalBlue,very thick}]
+    \path [->, sloped, anchor=center, color=RoyalBlue] (C) edge node {accept} (F);
+    \path [->, sloped, anchor=center, color=RoyalBlue] (B) edge node {accept} (E);
+    \path [->, sloped, anchor=center, color=RoyalBlue] (A) edge node {accept} (D);
+\end{scope}
+
+%green%
+\begin{scope}[>={Stealth[Green]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=Green,very thick}]
+    \path [->, sloped, anchor=center, color=Green] (C) edge node {reject} (G);
+    \path [->, sloped, anchor=center, color=Green] (A) edge node {reject} (B);
+    \path [->, sloped, anchor=center, color=Green] (B) edge node {reject} (C);
+\end{scope}
+
+%black%
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=black,very thick}]
+    \path [->] (H) edge node {} (A);
+\end{scope}
+
+%texts
+\draw	(1,12) node[anchor=north] {draw $w_0$}
+			(4.9,10.5) node[anchor=north] {$v_0(w_0) = \max\{ w_0 + \beta w_0 +  \beta^{2} w_0, c + \beta\mathbb{E}v_1(w_1)$ \} }
+			(3.5,9) node[anchor=north] {receive $c$, draw $w_1$}
+			(7.2,7.4) node[anchor=north] {$v_1(w_1)= \max \{ w_1+\beta w_1 , c+\beta\mathbb{E}v_2(w_2)$ \}}
+			(6.5,6) node[anchor=north] {receive $c$, draw $w_2$}
+      		(8.4,4.4) node[anchor=north] {$v_2(w_2) = \max\{c, w_2\}$}
+			(-2.4,7.2) node[anchor=north] {$w_0+\beta w_0 + \beta^{2} w_0$}
+			(0.2,4.2) node[anchor=north] {$w_1+\beta w_1$}
+			(3.3,1.2) node[anchor=north] {$w_2$}
+			(8.9,1.2) node[anchor=north] {$c$};
+			
+\end{tikzpicture}
+
+

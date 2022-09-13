@@ -1,13 +1,3 @@
-
-Quick introduction to Python
-
-- Functions, classes, everything is an object
-- Perhaps grab from U tokyo intro to Python
-
-
-Quick introduction to NumPy, Matplotlib, SciPy, Numba, JAX
-
-- Python vs Julia vs Fortran speed test (?)
 - One or two notebooks, subset of QE lectures on these topics
 - Equilibrium, n-D equilibrium
 

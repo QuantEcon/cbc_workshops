@@ -1,0 +1,27 @@
+
+\begin{tikzpicture}
+
+% horizontal 
+\draw[->] (0,0) -- (8,0) node[anchor=north] { };
+
+% vertical
+\draw[->] (0,0) -- (0,6) node[anchor=east] {};
+
+
+\draw[thick] (0,0) -- (6,6);
+\draw [Green, domain=0:2.4, samples=500] plot (\x, {\x*\x});
+\draw [blue, domain=0:4.8, samples=500] plot (\x, {0.25*\x*\x});
+
+\filldraw[color=black] (4,4) circle (2pt) node[anchor=west] {}
+		 [color=black] (1,1) circle (2pt) node[anchor=west] {};
+
+		 
+\draw(4.5,6) node[anchor=north] {$S$}
+          (2.1,6) node[anchor=north] {$T$}
+          (4.4,4) node[anchor=north] {$u_S$}
+          (0.6,1.5) node[anchor=north] {$u_T$};
+		     
+
+		     
+\end{tikzpicture}
+

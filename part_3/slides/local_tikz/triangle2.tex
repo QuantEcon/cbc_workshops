@@ -1,0 +1,22 @@
+
+
+%\tikzset{font={\fontsize{13pt}{12}\selectfont}}
+
+
+\begin{tikzpicture}[thick, 
+                   scale=0.8, 
+                   shape=circle, 
+                   shorten <= 5pt, 
+                   shorten >= 5pt, 
+                   minimum width=60pt]
+
+\node[draw] (v) at (0, 0) {$\RR^\Xsf$  (value functions)};
+\node[draw] (g) at (6, -4) {$\RR^\Gsf$  (EV functions)};
+\node[draw] (h) at (-5, -4) {$\RR^\Gsf$  ($Q$-factors)};
+
+\draw[->] (v) to node[shift={(5pt, 10pt)}] {$E$} (g);
+\draw[->] (g) to node[yshift=-10pt] {$D$} (h);
+\draw[->] (h) to node[shift={(-5pt, 10pt)}] {$M$} (v);
+
+\end{tikzpicture}
+

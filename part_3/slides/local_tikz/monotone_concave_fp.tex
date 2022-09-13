@@ -1,0 +1,42 @@
+\begin{tikzpicture}
+
+\begin{axis}[
+		axis lines = left,
+		xmin=0, xmax=8,
+		xtick=\empty, ytick=\empty,
+		xticklabels=\empty,
+		yticklabels=\empty,
+		legend pos=north west]	
+		
+\addplot [
+    domain=0:6, 
+    samples=500, 
+    color=black,
+    thick
+]
+{x};
+\addlegendentry{$45^o$}
+
+\addplot [
+    domain=0:7, 
+    samples=500, 
+    color=blue,
+    thick
+]
+{2*sqrt(x)};
+\addlegendentry{$g$}
+
+\end{axis}
+
+\filldraw[color=black!30!green] (3.4,3.8) circle (2.5pt) node[anchor=west] {};
+
+\draw[dotted] (1,0) -- (1,2)
+		 [dotted] (5.8,0) -- (5.8,4.89);
+
+\draw	(1,0) node[anchor=north] {$a$}
+		     (2.5,5) node[anchor=north] {$u^{\ast}$}
+		     (5.8,0) node[anchor=north] {$b$};
+		     
+\draw[->] (2.7,4.5) -- (3.3,4.0);   
+		     
+\end{tikzpicture}

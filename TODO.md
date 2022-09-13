@@ -1,25 +1,22 @@
-Introduce NumPy via Leontief / IO?
 
-Discuss linear assignment problem and solution via linear programming / Google
-OR tools?
+Add cuda version of GPU programming to European option example, just to
+illustrate?
+
+Add Julia to Python vs Fortran speed test (?)
+
+Introduce NumPy via Leontief / IO?
 
 Discuss Leontief / IO with supply constraints (monotone concave operators)?
 
-Prep Elliot et al default cascades.
+Prep Elliot et al. default cascades?
 
-Add Toda example and solve by autodiff.
+Add Toda example and solve by autodiff?
 
-Possibly add to optimal savings problem:
+Prepare Arellano JAX version?
 
-- stochastic interest rates 
-- labor choice 
+Test Anderson Acceleration with VFI?
 
-Test Anderson Acceleration with VFI
+R&D with IID costs as an example of dimensionality reduction?
 
-Test asynchronous VFI
-
-Write up R&D with IID costs as an example of dimensionality reduction.
-
-Prepare Arellano JAX version.
 
 

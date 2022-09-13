@@ -1,0 +1,20 @@
+%\usepackage{amsfonts}
+
+
+\begin{tikzpicture}[thick, node distance=45pt, shorten >=15pt]
+
+\node (sq) [shape=rectangle, draw, minimum width=100pt, minimum height=60pt]{$Ax + Bu + C \xi$};
+\node (l1) [above of=sq] {$\xi \in \mathbb R^j$};
+\node (l2) [below of=sq] {$u \in \mathbb R^m$};
+
+\draw[->, shorten <=10pt, shorten >=10pt] 
+	(sq.east) to [in=-150, out=-30, looseness=5] 
+		node[pos=0.07, anchor=center, fill=white] {$x'$} 
+		node[midway, below=6pt] {$t = t+1$} 
+		node[pos=0.93, anchor=center, fill=white] {$x$} 
+	(sq.west);
+
+\draw[->] (l1) -- (sq.center);
+\draw[->, shorten <=-1pt] (l2) -- (sq.center);
+
+\end{tikzpicture}

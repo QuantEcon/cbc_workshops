@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+  \node[circle, draw] (1) at (0, 0) {unemployed};
+  \node[circle, draw] (2) at (3, 0) {employed};
+  \draw[->, thick, black]
+  (1) edge [bend left=20, above] node {$\alpha h$} (2)
+  (2) edge [bend left=20, below] node {$\beta h$} (1)
+  (2) edge [loop below] node {$1 -\beta h$} (2)
+  (1) edge [loop above] node {$1 -\alpha h$} (1);
+\end{tikzpicture}

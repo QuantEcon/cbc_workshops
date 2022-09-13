@@ -1,0 +1,111 @@
+
+\begin{tikzpicture}[auto, thick]
+
+
+% horizontal 
+\draw[->] (-3,1) -- (13,1) node[anchor=north] { };
+
+%nodes
+\node[circle, draw, minimum size=1.2cm] (A) at (0,3) {$w_t$};
+\node (B) at (3,3) {$w_t - c_t$};
+\node (C) at (7,3) {$R_{_{t+1}} (w_t - c_t ) + y_{_{t+1} } = $};
+\node[circle, draw, minimum size=1.2cm] (D) at (9.8,3) {$w_{_{t+1}}$};
+\node (E) at (12,3) {};
+\node (F) at (1.5,5) {$c_t$};
+\node (G) at (5,5) {$u(c_t)$};
+\node (H) at (8.5,4.5) {$(R_{_{t+1}},y_{_{t+1}})$ realized};
+
+% edges
+
+\begin{scope}[>={Stealth},
+              every edge/.style={draw, thick}]
+              
+	\path [->] (H) edge node {} (C);
+
+\end{scope}
+
+\begin{scope}[>={Stealth[RoyalBlue]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=RoyalBlue, thick}]
+              
+    \path [->] (A) edge node {} (B);
+    \path [->] (B) edge node {} (C);
+    \path [->] (D) edge node {} (E);
+    \path [->] (A) edge node {} (F);
+    \path [->] (F) edge node {} (G);
+\end{scope}
+
+\draw[dotted] (0,1) -- (0,2.4)
+		 [dotted] (9.8,1) -- (9.8,2.4);
+		 
+\filldraw[black] (0,1) circle (2pt) node[anchor=west] {}
+			[black] (9.8,1) circle (2pt) node[anchor=west] {};
+	 
+\draw	(0,0.75) node[anchor=north] {$t$}
+		     (9.8,0.75) node[anchor=north] {$t+1$}
+		     (5,-0.5) node[anchor=north] {period $t$};
+		     
+\draw [decorate,decoration={brace,amplitude=10pt,mirror,raise=4pt},yshift=0pt]
+(-0.2,0) -- (10.3,0) node [black,midway,xshift=0.8cm] {};
+		
+\end{tikzpicture}
+
+
+%\begin{tikzpicture}[auto, thick]
+
+
+%% horizontal 
+%\draw[->] (-3,1) -- (13,1) node[anchor=north] { };
+
+%%nodes
+%\begin{scope}[every node/.style={circle,thick}]
+
+    %\node[superpeers, minimum size=1cm] (A) at (0,3) {$w_t$};
+    %\node (B) at (3,3) {$w_t - c_t$};
+    %\node (C) at (7,3) {$R_{_{t+1}} (w_t - c_t ) + y_{_{t+1}} = $};
+    %\node[superpeers, minimum size=1cm] (D) at (9.3,3) {$w_{_{t+1}}$};
+    %\node (E) at (12,3) {};
+    %\node (F) at (2,5) {$c_t$};
+    %\node (G) at (5,5) {$u(c_t)$};
+    %\node (H) at (8,5) {$(R_{_{t+1}},t_{_{t+1}})$ realized};
+    %\node (I) at (6.5,3.3) {};
+    %\node (J) at (7.3,4.5) {};
+
+    
+%\end{scope}
+
+%% edges
+
+%\begin{scope}[>={Stealth[green]},
+              %every node/.style={fill=white,circle},
+              %every edge/.style={draw=green,very thick}]
+              
+%\path [->] (J) edge[bend right=60] node {} (I); 
+
+%\end{scope}
+
+%\begin{scope}[>={Stealth[blue]},
+              %every node/.style={fill=white,circle},
+              %every edge/.style={draw=blue,very thick}]
+              
+    %\path [->] (A) edge node {} (B);
+    %\path [->] (B) edge node {} (C);
+    %\path [->] (D) edge node {} (E);
+    %\path [->] (A) edge node {} (F);
+    %\path [->] (F) edge node {} (G);
+%\end{scope}
+
+%\draw[dotted] (0,1) -- (0,2.4)
+		 %[dotted] (9.3,1) -- (9.3,2.4);
+		 
+%\filldraw[black] (0,1) circle (2pt) node[anchor=west] {}
+			%[black] (9.3,1) circle (2pt) node[anchor=west] {};
+	 
+%\draw	(0,0.75) node[anchor=north] {$t$}
+			 %(9.3,0.75) node[anchor=north] {$t+1$}
+			 %(5,-0.5) node[anchor=north] {period $t$};
+			 
+%\draw [decorate,decoration={brace,amplitude=10pt,mirror,raise=4pt},yshift=0pt]
+%(-0.5,0) -- (10,0) node [black,midway,xshift=0.8cm] {};
+		
+%\end{tikzpicture}

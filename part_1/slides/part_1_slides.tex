@@ -1,0 +1,546 @@
+\input{../../slides_preamb.tex}
+
+
+\subtitle{Introduction}
+
+\author{John Stachurski}
+
+
+\date{September 2022}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+
+
+
+\section{Introduction}
+
+
+
+\begin{frame}
+    \frametitle{Plan}
+
+
+    \begin{itemize}
+        \item Introduction to scientific computing with Python
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \item Fixed points and job search 
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \item Dynamic programming: theory and algorithms
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \item Parallelization on the GPU 
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+
+    Assumptions:
+
+    \begin{itemize}
+        \item You have read lectures 1-3 at
+            %
+            \begin{center}
+                \url{https://python-programming.quantecon.org/intro.html}
+            \end{center}
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \item some basic familiarity with programming
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \item linear algebra, multivariate calculus, etc.
+    \end{itemize}
+
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \vspace{0.3em}
+    Resources:
+
+    \begin{itemize}
+        \item \url{https://github.com/jstac/paris_workshop_2022}
+    \end{itemize}
+
+
+\end{frame}
+
+
+
+
+\section{Overview}
+
+
+\begin{frame}
+    \frametitle{Background}
+
+    The theme of these lectures is dynamic programming in Python
+
+
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \vspace{0.3em}
+    Why use Python for DP?
+
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \vspace{0.3em}
+    In fact, why use Python for scientific computing?
+
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \vspace{0.3em}
+        \vspace{0.3em}
+    Let's compare Python to some of the alternatives
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+    \frametitle{Language Types}
+    
+    \navy{Low level } 
+    
+    \begin{itemize}
+        \item C/C++
+        \item Fortran
+        \item assembly
+    \end{itemize}
+
+    \vspace{1em}
+
+    \navy{High level } 
+
+    \begin{itemize}
+        \item Python
+        \item Ruby
+        \item TypeScript
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
+
+    Low level languages give us fine grained control 
+    
+    \Eg \brown{1 + 1} in assembly
+
+    {\small
+    \begin{minted}{as}
+pushq   %rbp
+movq    %rsp, %rbp
+movl    $1, -12(%rbp)
+movl    $1, -8(%rbp)
+movl    -12(%rbp), %edx
+movl    -8(%rbp), %eax
+addl    %edx, %eax
+movl    %eax, -4(%rbp)
+movl    -4(%rbp), %eax
+popq    %rbp
+    \end{minted}
+    }
+
+
+
+\end{frame}
+
+
+\begin{frame}
+    
+    \navy{High level languages} give us abstraction, automation, etc.
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+
+    \Eg Reading from a file in Python
+    
+    \begin{minted}{python}
+    data_file = open("data.txt")
+    for line in data_file:
+        print(line.capitalize()) 
+    data_file.close()
+    \end{minted}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Trade-Offs}
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.36}{\includegraphics{tradeoff.pdf}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+    \frametitle{But what about scientific computing?}
+    
+    \navy{Requirements}
+
+    \begin{itemize}
+        \item \underline{\green{Productive}} --- easy to read, write, debug, explore
+            \vspace{0.4em}
+            \vspace{0.4em}
+            \vspace{0.4em}
+        \item \underline{\green{Fast}} computations
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+    \frametitle{Trade-Offs}
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.36}{\includegraphics{tradeoff2.pdf}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Trade-Offs}
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.36}{\includegraphics{tradeoff3.pdf}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Trade-Offs}
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.36}{\includegraphics{tradeoff4.pdf}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+
+
+\section{Which Language?}
+
+
+\begin{frame}
+    \frametitle{Which Language}
+
+
+    How about R?
+    \vspace{0.5em}
+
+    \begin{itemize}
+        \item Specialized to statistics
+            \vspace{0.5em}
+        \item Easy to learn, well designed
+            \vspace{0.5em}
+        \item Huge range of estimation routines
+            \vspace{0.5em}
+        \item Significant demand for R programmers
+            \vspace{0.5em}
+        \item Popular in academia 
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    Loosing some ground to Python
+            \vspace{0.5em}
+            \vspace{0.5em}
+            \vspace{0.5em}
+
+    \Eg Chris Wiggins, Chief Data Scientist at The New York Times:
+
+            \vspace{0.5em}
+     ``Python has gotten sufficiently weapons grade that we don't descend into
+     R anymore. Sorry, R people. I used to be one of you but we no longer
+     descend into R.''
+
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Julia}
+
+    Pros:
+    
+    \begin{itemize}
+        \item Fast and elegant
+            \vspace{0.5em}
+        \item Many scientific routines
+            \vspace{0.5em}
+        \item Julia is written in Julia
+    \end{itemize}
+
+            \vspace{0.5em}
+            \vspace{0.5em}
+            \vspace{0.5em}
+    Cons:
+    
+    \begin{itemize}
+        \item Some stability issues
+            \vspace{0.5em}
+        \item Yet to achieve rapid growth
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+    \frametitle{Python}
+
+    Pros:
+    
+    \begin{itemize}
+        \item Massive scientific ecosystem
+            \vspace{0.5em}
+        \item Strong investment from Google, Facebook (Meta), etc.
+            \vspace{0.5em}
+        \item Huge demand for tech-savvy Python programmers
+    \end{itemize}
+
+
+            \vspace{0.5em}
+            \vspace{0.5em}
+    Cons:
+    
+    \begin{itemize}
+        \item Numerical code not as clean as Julia
+            \vspace{0.5em}
+        \item Econometrics libraries less developed than R/STATA
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+%\begin{frame}
+    %\frametitle{Scientific Computing}
+    
+    %Python has strong tools in vectorization / JIT compilation /
+    %parallelization / visualization / etc.
+
+    %Examples:
+
+    %\begin{itemize}
+        %\item SciPy, NumPy, Matplotlib, pandas
+            %\vspace{0.5em}
+        %\item Numba (JIT compilation, multithreading)
+            %\vspace{0.5em}
+        %\item Tensorflow, PyTorch (machine learning, AI)
+            %\vspace{0.5em}
+        %\item JAX (JIT compilation, parallelization), etc., etc.
+    %\end{itemize}
+
+%\end{frame}
+
+\begin{frame}
+    
+
+    Popularity, others vs \underline{one} Python library (pandas)
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.4}{\includegraphics{python_vs_rest.png}}
+       \end{center}
+    \end{figure}
+
+
+\end{frame}
+
+
+
+
+
+
+\section{Trends}
+
+\begin{frame}
+    \frametitle{Current Trend 1: Parallelization}
+
+    CPU frequency (clock speed) growth is slowing
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.22}{\includegraphics{processor_clock.png}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    Chip makers have responded by developing multi-core processors
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.2}{\includegraphics{dual_core.png}}
+       \end{center}
+    \end{figure}
+
+    Source: Wikipedia
+
+
+\end{frame}
+
+
+\begin{frame}
+
+    \navy{GPUs / TPUs} are becoming more and more important
+
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.14}{\includegraphics{gpu.jpg}}
+       \end{center}
+    \end{figure}
+
+    \vspace{0.5em}
+
+    Applications: 
+    \begin{itemize}
+        \item machine learning, deep learning, etc.
+        \item dynamic programming!
+    \end{itemize}
+    
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Trend 2: Distributed Computing}
+    
+    Advantages: 
+    %
+    \begin{itemize}
+        \item run code on big machines we don't have to buy
+        \vspace{0.5em}
+        \item circumvent internal IT departments
+    \end{itemize}
+
+    \vspace{0.5em}
+
+    Options:
+    %
+    \begin{itemize}
+        \item Google Colab, PythonAnywhere, etc.
+            \vspace{0.5em}
+        \item AWS 
+            \vspace{0.5em}
+        \item Supercomputers
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+\section{Set Up}
+
+
+
+
+
+
+
+\begin{frame}
+    \frametitle{Downloads / Installation / Remote Options}
+
+    \green{Install Python + scientific libraries (optional)}
+    
+    \begin{itemize}
+        \item Install Anaconda from {\footnotesize \url{https://www.anaconda.com/}}
+        \vspace{0.5em}
+            \begin{itemize}
+                \item Select latest version 
+                \item For your OS
+                \item Say ``yes'' at prompts
+            \end{itemize}
+        \vspace{0.5em}
+        \item Not plain vanilla Python
+    \end{itemize}
+
+
+    \vspace{1em}
+
+    \green{Remote options}
+
+    \begin{itemize}
+        \item \url{https://colab.research.google.com}
+    \end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Notebooks}
+
+    Now let's move on to
+    %
+    \begin{itemize}
+        \item \texttt{python\_by\_example.ipynb}
+        \item \texttt{finite\_markov.ipynb}
+        \item \texttt{equilibrium.ipynb}
+        \item \texttt{numba.ipynb}
+        \item \texttt{european\_option\_numba.ipynb}
+    \end{itemize}
+
+\end{frame}
+
+
+
+
+
+\end{document}
+
+

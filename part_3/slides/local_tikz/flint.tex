@@ -1,0 +1,23 @@
+
+\begin{tikzpicture}[auto, thick, node distance=30pt, bend left=10]
+
+\node (s) {$\sigma$};
+\node (s1) [below of=s] {$\sigma'$};
+\node (el1) [below of=s1] {$\vdots$};
+\node (s2) [below of=el1] {$\sigma^*$};
+
+\node (v) [right=70pt of s] {$v_{\sigma}$};
+\node (v1) [below of=v] {$v_{\sigma'}$};
+\node (el2) [below of=v1] {$\vdots$};
+\node (v2) [below of=el2] {$v_{\sigma^*}$};
+
+\node[draw, ellipse, minimum width=50pt, fit=(s) (s1) (s2)](f1) {};
+\node[draw, ellipse, minimum width=50pt, fit=(v) (v1) (v2)](f2) {};
+
+\draw[->] (s) to (v);
+\draw[->] (v) to (s1.10);
+\draw[->] (s1.-10) to (v1);
+\draw[->] (v1) to (s2.10);
+\draw[->] (s2.-10) to (v2);
+
+\end{tikzpicture}

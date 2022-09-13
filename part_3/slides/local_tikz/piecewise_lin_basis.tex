@@ -1,0 +1,57 @@
+
+\begin{tikzpicture}
+% horizontal 
+\draw[->] (0,0) -- (11,0) node[anchor=north] { };
+% labels
+\draw	(0,0) node[anchor=north] {$a$}
+		(1,0) node[anchor=north] {$x_1$}
+		(2,0) node[anchor=north] {$x_2$}
+		(3,0) node[anchor=north] {$x_3$}
+		(4,0) node[anchor=north] { }
+		(5,0) node[anchor=north] {$x_i-1$}
+		(6,0) node[anchor=north] {$x_i$}
+		(7,0) node[anchor=north] {$x_i+1$}
+		(8,0) node[anchor=north] { }
+		(9,0) node[anchor=north] {$n-2$}
+		(10,0) node[anchor=north] {$b$};
+% ranges
+\filldraw[black] (0,0) circle (2pt) node[anchor=west] {}
+			[black] (1,0) circle (2pt) node[anchor=west] {}
+			[black] (2,0) circle (2pt) node[anchor=west] {}
+			[black] (3,0) circle (2pt) node[anchor=west] {}
+			[black] (4,0) circle (2pt) node[anchor=west] {}
+			[black] (5,0) circle (2pt) node[anchor=west] {}
+			[black] (6,0) circle (2pt) node[anchor=west] {}
+			[black] (7,0) circle (2pt) node[anchor=west] {}
+			[black] (8,0) circle (2pt) node[anchor=west] {}
+			[black] (9,0) circle (2pt) node[anchor=west] {}
+			[black] (10,0) circle (2pt) node[anchor=west] {};
+			
+\filldraw[lightgray] (1,2) circle (3pt) node[anchor=west] {}
+			[lightgray] (2,2) circle (3pt) node[anchor=west] {}
+			[lightgray] (6,2) circle (3pt) node[anchor=west] {}
+			[lightgray] (10,2) circle (3pt) node[anchor=west] {};
+			
+			
+\draw    (1.35,2) node{$\ell_1$}
+		     (2.35,2) node{$\ell_2$}
+		     (6.35,2) node{$\ell_i$}
+		     (9.5,2) node{$\ell_{_{n-1}}$}
+		     (-0.5,2) node{$1$};
+
+% vertical
+\draw[->] (0,0) -- (0,3) node[anchor=east] {};
+
+% nominal speed
+\draw[dotted] (1,0) -- (1,2)
+		 [dotted] (2,0) -- (2,2)
+		 [dotted] (6,0) -- (6,2)
+		 [dotted] (10,0) -- (10,2);
+
+\draw[-] (-0.1,2) -- (0.1,2);
+\draw[thick] (0,0) -- (1,2) -- (2,0)
+		 [thick] (1,0) -- (2,2) -- (3,0)
+		 [thick] (5,0) -- (6,2) -- (7,0)
+		 [thick] (9,0) -- (10,2);
+\end{tikzpicture}
+

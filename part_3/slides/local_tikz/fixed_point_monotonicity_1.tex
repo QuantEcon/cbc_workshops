@@ -1,0 +1,26 @@
+
+\begin{tikzpicture}
+
+% horizontal 
+\draw[->] (0,0) -- (8,0) node[anchor=north] { };
+
+% vertical
+\draw[->] (0,0) -- (0,6) node[anchor=east] {};
+
+
+\draw[thick] (0,0) -- (5.8,5.8);
+\draw[color=blue, domain=0:7]   plot (\x,{1.5+sin(0.8*\x r)})   node[right] {};
+\draw[color=Green, domain=0:7,samples=500] plot (\x,{2+sqrt(\x)});
+
+\draw	(7.3,1.2) node[anchor=north] {$S$}
+		     (7.3,5) node[anchor=north] {$T$};
+		     
+\filldraw[color=black] (2.42,2.42) circle (2pt) node[anchor=west] {}
+		 [color=black] (4,4) circle (2pt) node[anchor=west] {};
+		     
+		     
+\draw	(3,2.7) node[anchor=north] {$u_S$}
+		 (3.8,4.6) node[anchor=north] {$u_T$};
+		     
+\end{tikzpicture}
+
