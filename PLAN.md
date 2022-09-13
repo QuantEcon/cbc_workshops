@@ -14,7 +14,8 @@ Quick introduction to NumPy, Matplotlib, SciPy, Numba, JAX
 
 Networks
 
-- A quick intro to networks and centrality (slides) 
+- A quick intro to networks and centrality 
+    (slides are in networks text slides folder) 
 - Multisector production models
 - Financial networks
 
