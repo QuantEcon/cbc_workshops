@@ -644,15 +644,16 @@
     \emp{Newton's method} extends naturally to \emp{multiple dimensions}
 
             \vspace{0.5em}
-    When $h$ is a map from $S \subset \RR^n$ to itself, we use
+    When $T$ is a map from $S \subset \RR^n$ to itself, we use
 
     %
     \begin{equation*}
-        x_{k+1} = x_k - [J(x_k)]^{-1} h(x_k)
+        x_{k+1} = (I - J(x_k))^{-1} 
+                    (Tx_k - J(x_k)) x_k
     \end{equation*}
     %
 
-    Here $J_h(x_k) := $ the Jacobian of $h$ evaluated at $x_k$
+    Here $J(x) := $ the Jacobian of $T$ evaluated at $x$
 
     \vspace{1em}
 
@@ -823,7 +824,7 @@
         \right\}
          = \1
         \left\{
-            \frac{w}{1 - \beta}, \; h^*
+            \frac{w}{1 - \beta} \geq \; h^*
         \right\}
     \end{equation*}
 
@@ -1309,10 +1310,10 @@
                 \item Iteration in $\RR$, not $\RR^n$
             \end{itemize}
             \vspace{1em}
-        \item Optimal policy is 
+        \item Now choose
             %
             \begin{equation*}
-                \sigma^*(w)
+                \sigma(w)
                 = \1
                 \left\{
                     \frac{w}{1-\beta}
