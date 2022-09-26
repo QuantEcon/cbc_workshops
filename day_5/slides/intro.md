@@ -150,9 +150,10 @@ Pablo Winant
 
 ----
 
-## Optimization strategies (today)
+## Premature optimization...
 
-- In this curse we will (mostly)
+- ... is the root of all evil
+- In this course we will (mostly)
   - provide just enough type information to avoid performance hits
   - use some zero-cost abstractions to write more transparent/generic code
   - use autodiff when possible, fall back on finitediff when not
