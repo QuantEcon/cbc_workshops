@@ -78,8 +78,12 @@ Pablo will lead sessions on the following topics:
 * Global solution techniques and occasionally binding constraints models
     * "improved" algorithms
     * multistep problems and endogenous grids
-    * dimensionality reduction
+    * dimensionality reduction (\*)
 * Heterogeneous agent models
 * Parallel computing in Julia
-* Performance optimization
+* Performance optimization (\*)
+
+\*: time-permitting
+
+
 
