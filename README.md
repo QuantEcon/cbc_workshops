@@ -79,8 +79,8 @@ Pablo will lead sessions on the following topics:
     * "improved" algorithms
     * multistep problems and endogenous grids
     * dimensionality reduction (\*)
-* Heterogeneous agent models
-* Parallel computing in Julia
+* Heterogeneous agent models (\*)
+* Parallel computing in Julia (\*)
 * Performance optimization (\*)
 
 \*: time-permitting
