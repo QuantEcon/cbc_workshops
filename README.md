@@ -4,7 +4,7 @@
 
 This is the homepage for the [QuantEcon](https://quantecon.org/) scientific
 and high performance computing workshops to be held at the Central Bank of
-Chile in September 2022.
+Chile in September 2022. [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QuantEcon/cbc_workshops/HEAD)
 
 Instructors:
 
