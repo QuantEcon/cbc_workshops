@@ -279,3 +279,7 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+
+*reveal.js*
+node_modules
