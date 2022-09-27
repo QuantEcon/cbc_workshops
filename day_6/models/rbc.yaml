@@ -5,10 +5,7 @@ symbols:
    exogenous: [z]
    states: [k]
    controls: [n, i]
-   expectations: [m]
-   values: [V]
    parameters: [beta, sigma, eta, chi, delta, alpha, rho, zbar, sig_z]
-   rewards: [u]
 
 definitions: |
     y[t] = exp(z[t])*k[t]^alpha*n[t]^(1-alpha)
@@ -23,21 +20,8 @@ equations:
         beta*(c[t]/c[t+1])^(sigma)*(1-delta+rk[t+1]) - 1  = 0
 
     transition: |
-        k[t] = (1-delta)*k(-1) + i(-1)
-
-    value: |
-        V[t] = c^(1-sigma)/(1-sigma) - chi*n^(1+eta)/(1+eta) + beta*V(1)
-
-    felicity: |
-        u[t] =  c^(1-sigma)/(1-sigma) - chi*n^(1+eta)/(1+eta)
-
-    expectation: |
-        m[t] = beta/c(1)^sigma*(1-delta+rk(1))
-
-    direct_response: |
-        n[t] = ((1-alpha)*exp(z)*k^alpha*m/chi)^(1/(eta+alpha))
-        i[t] = exp(z)*k^alpha*n^(1-alpha) - (m)^(-1/sigma)
-
+        k[t] = (1-delta)*k[t-1] + i[t-1]
+        
 calibration:
 
     # parameters
